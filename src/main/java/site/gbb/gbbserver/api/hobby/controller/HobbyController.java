@@ -19,7 +19,6 @@ public class HobbyController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public ApiResponse<HobbyCreateResponseDto> createCard(@RequestHeader(value="memberId") Long memberId, @RequestBody HobbyCreateRequestDto hobbyCreateRequestDto) {
-        hobbyService.createHobby(memberId, hobbyCreateRequestDto);
         HobbyCreateResponseDto response = hobbyService.createHobby(memberId, hobbyCreateRequestDto);
 
         return ApiResponse.success(SuccessCode.CREATE_HOBBY_SUCCESS, response);

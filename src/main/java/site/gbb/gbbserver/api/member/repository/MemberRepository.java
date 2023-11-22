@@ -1,6 +1,7 @@
-package site.gbb.gbbserver.api.member.domain;
+package site.gbb.gbbserver.api.member.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import site.gbb.gbbserver.api.member.domain.Member;
 import site.gbb.gbbserver.common.exception.NotFoundException;
 import site.gbb.gbbserver.common.response.ErrorCode;
 

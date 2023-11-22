@@ -4,11 +4,9 @@ import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import site.gbb.gbbserver.api.member.domain.Member;
-import site.gbb.gbbserver.api.member.domain.MemberRepository;
+import site.gbb.gbbserver.api.member.repository.MemberRepository;
 import site.gbb.gbbserver.api.member.dto.MemberRequestDto;
 import site.gbb.gbbserver.api.member.dto.MemberResponseDto;
-
-import java.util.Optional;
 
 
 @Service

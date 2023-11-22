@@ -8,8 +8,7 @@ import site.gbb.gbbserver.api.hobby.dto.request.HobbyCreateRequestDto;
 import site.gbb.gbbserver.api.hobby.dto.response.HobbyCreateResponseDto;
 import site.gbb.gbbserver.api.hobby.repository.HobbyRepository;
 import site.gbb.gbbserver.api.hobby.service.HobbyService;
-import site.gbb.gbbserver.api.member.domain.Member;
-import site.gbb.gbbserver.api.member.repository.MemberRepository;
+import site.gbb.gbbserver.api.member.domain.MemberRepository;
 
 @Service
 @RequiredArgsConstructor

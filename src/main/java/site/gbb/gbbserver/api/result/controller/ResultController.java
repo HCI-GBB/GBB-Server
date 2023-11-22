@@ -14,10 +14,10 @@ import site.gbb.gbbserver.common.response.SuccessCode;
 public class ResultController {
     private final ResultService resultService;
 
-    @GetMapping("/{memberId}")
+    @GetMapping("/{hobbyId}")
     @ResponseStatus(HttpStatus.OK)
-    public ApiResponse<ResultGetResponseDto> getResult(@PathVariable Long memberId) {
-        ResultGetResponseDto response = resultService.getResult(memberId);
+    public ApiResponse<ResultGetResponseDto> getResult(@RequestHeader(value="memberId") Long memberId, @PathVariable Long hobbyId) {
+        ResultGetResponseDto response = resultService.getResult(memberId, hobbyId);
         return ApiResponse.success(SuccessCode.GET_RESULT_SUCCESS, response);
     }
 }

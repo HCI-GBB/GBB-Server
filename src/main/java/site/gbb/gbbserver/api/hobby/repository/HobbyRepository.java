@@ -9,5 +9,4 @@ import site.gbb.gbbserver.api.hobby.domain.Hobby;
 public interface HobbyRepository extends JpaRepository<Hobby, Long> {
 
     Hobby findByMemberId(Long memberId);
-
 }

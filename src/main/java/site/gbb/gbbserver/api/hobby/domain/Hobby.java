@@ -26,16 +26,16 @@ public class Hobby {
     private Member member;
 
     @Convert(converter = StringListConverter.class)
-    private List<String> like;
+    private List<String> likes;
 
     @Convert(converter = StringListConverter.class)
-    private List<String> hate;
+    private List<String> hates;
 
     @Builder
-    public Hobby(Member member, List<String> like, List<String> hate) {
+    public Hobby(Member member, List<String> likes, List<String> hates) {
         this.member = member;
-        this.like = like;
-        this.hate = hate;
+        this.likes = likes;
+        this.hates = hates;
     }
 
 }

@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import site.gbb.gbbserver.api.member.domain.Member;
+import site.gbb.gbbserver.api.hobby.domain.Hobby;
 import site.gbb.gbbserver.common.util.StringListConverter;
 
 import java.util.List;
@@ -22,8 +22,8 @@ public class Result {
     private Long id;
 
     @ManyToOne(fetch = LAZY)
-    @JoinColumn(name = "member_id")
-    private Member member;
+    @JoinColumn(name = "hobby_id")
+    private Hobby hobby;
 
     @Convert(converter = StringListConverter.class)
     private List<String> active;
@@ -32,8 +32,8 @@ public class Result {
     private List<String> percent;
 
     @Builder
-    public Result(Member member, List<String> active, List<String> percent) {
-        this.member = member;
+    public Result(Hobby hobby, List<String> active, List<String> percent) {
+        this.hobby = hobby;
         this.active = active;
         this.percent = percent;
     }

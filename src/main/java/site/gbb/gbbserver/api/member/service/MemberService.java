@@ -22,7 +22,7 @@ public class MemberService {
 
     @Transactional
     public Member join(MemberRequestDto member) {
-        validateDuplicateMember(member.toEntity());
+        validateDuplicateMember(member.toEntity().getNickname());
         save(member);
         return memberRepository.findByNickname(member.getNickname()).get();
     }
@@ -36,8 +36,8 @@ public class MemberService {
                     hobbyRepository.findById(id).get(),
                     resultRepository.findById(id).get());
     }
-    private void validateDuplicateMember(Member member) {
-        memberRepository.findByNickname(member.getNickname())
+    private void validateDuplicateMember(String nickname) {
+        memberRepository.findByNickname(nickname)
                 .ifPresent(m -> {
                     throw new IllegalStateException("이미 사용 중인 닉네임입니다.");
                 });

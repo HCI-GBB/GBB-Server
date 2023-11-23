@@ -13,13 +13,15 @@ import site.gbb.gbbserver.api.member.service.MemberService;
 public class MemberController {
     private final MemberService memberService;
 
+
     @PostMapping("/api/v1/login")
     public Member save(@RequestBody MemberRequestDto memberRequestDto){
         return memberService.join(memberRequestDto);
     }
     @GetMapping("/api/v1/login/{id}") //중간 결과 조회
     public MemberResponseDto findById(@PathVariable Long id){
-        return memberService.findById(id);
+        MemberResponseDto dto = memberService.findById(id);
+        return dto;
     }
 
 

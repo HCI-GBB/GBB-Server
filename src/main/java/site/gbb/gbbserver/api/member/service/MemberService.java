@@ -11,13 +11,13 @@ import site.gbb.gbbserver.api.member.dto.MemberResponseDto;
 import site.gbb.gbbserver.api.result.repository.ResultRepository;
 
 
+
 @Service
 @RequiredArgsConstructor
 public class MemberService {
     private final MemberRepository memberRepository;
     private final HobbyRepository hobbyRepository;
     private final ResultRepository resultRepository;
-
 
 
     @Transactional
@@ -30,11 +30,13 @@ public class MemberService {
     public String save(MemberRequestDto memberRequestDto){
         return memberRepository.save(memberRequestDto.toEntity()).getNickname();
     }
-    @Transactional
+
     public MemberResponseDto findById(Long id){
-        return new MemberResponseDto(memberRepository.findByIdOrThrow(id),
-                    hobbyRepository.findById(id).get(),
-                    resultRepository.findById(id).get());
+        return MemberResponseDto.builder()
+                .member(memberRepository.findById(id).get())
+                .hobby(hobbyRepository.findById(id).get())
+                .result(resultRepository.findById(id).get())
+                .build();
     }
     private void validateDuplicateMember(String nickname) {
         memberRepository.findByNickname(nickname)

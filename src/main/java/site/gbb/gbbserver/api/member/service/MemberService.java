@@ -47,8 +47,8 @@ public class MemberService {
 //        }
 //
 //    }
-    public MemberResponseDto findById(Long id) {
-        return new MemberResponseDto(memberRepository.findByIdOrThrow(id),
+    public List<MemberResponseDto> findById(Long id) {
+        return (List<MemberResponseDto>) new MemberResponseDto(memberRepository.findByIdOrThrow(id),
                 hobbyRepository.findByMemberId(id),
                 resultRepository.findById(id).get());
     }

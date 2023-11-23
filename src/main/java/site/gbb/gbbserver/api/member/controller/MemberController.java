@@ -21,7 +21,7 @@ public class MemberController {
     @GetMapping("/api/v1/login/{id}") //중간 결과 조회
     public MemberResponseDto findById(@PathVariable("id") Long id){
         System.out.println(id);
-        MemberResponseDto dto = memberService.findById(id);
+        MemberResponseDto dto = (MemberResponseDto) memberService.findById(id);
         return dto;
     }
 

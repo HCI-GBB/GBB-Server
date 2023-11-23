@@ -50,7 +50,7 @@ public class MemberService {
     public MemberResponseDto findById(Long id) {
         return new MemberResponseDto(memberRepository.findByIdOrThrow(id),
                 hobbyRepository.findByMemberId(id),
-                resultRepository.findByHobbyId(id));
+                resultRepository.findById(id).get());
     }
 
 

@@ -3,13 +3,16 @@ package site.gbb.gbbserver.api.member.service;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import site.gbb.gbbserver.api.hobby.domain.Hobby;
 import site.gbb.gbbserver.api.hobby.repository.HobbyRepository;
 import site.gbb.gbbserver.api.member.domain.Member;
 import site.gbb.gbbserver.api.member.repository.MemberRepository;
 import site.gbb.gbbserver.api.member.dto.MemberRequestDto;
 import site.gbb.gbbserver.api.member.dto.MemberResponseDto;
+import site.gbb.gbbserver.api.result.domain.Result;
 import site.gbb.gbbserver.api.result.repository.ResultRepository;
 
+import java.util.List;
 
 
 @Service
@@ -31,13 +34,27 @@ public class MemberService {
         return memberRepository.save(memberRequestDto.toEntity()).getNickname();
     }
 
-    public MemberResponseDto findById(Long id){
-        return MemberResponseDto.builder()
-                .member(memberRepository.findById(id).get())
-                .hobby(hobbyRepository.findById(id).get())
-                .result(resultRepository.findById(id).get())
-                .build();
+//    public MemberResponseDto findById2(Long id){
+//        if(memberRepository.findById(id).isPresent()){
+//            return MemberResponseDto.builder()
+//                    .member(memberRepository.findById(id).get())
+//                    .hobby(hobbyRepository.findById(id).get())
+//                    .result(resultRepository.findById(id).get())
+//                    .build();
+//        }else{
+//            System.out.println("DB찾기 실패");
+//            return new MemberResponseDto();
+//        }
+//
+//    }
+    public MemberResponseDto findById(Long id) {
+        return new MemberResponseDto(memberRepository.findByIdOrThrow(id),
+                hobbyRepository.findByMemberId(id),
+                resultRepository.findByHobbyId(id));
     }
+
+
+
     private void validateDuplicateMember(String nickname) {
         memberRepository.findByNickname(nickname)
                 .ifPresent(m -> {

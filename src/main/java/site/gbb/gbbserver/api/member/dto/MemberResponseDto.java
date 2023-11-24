@@ -8,8 +8,6 @@ import site.gbb.gbbserver.api.member.domain.Member;
 import site.gbb.gbbserver.api.result.domain.Result;
 
 import java.util.List;
-import java.util.Optional;
-
 
 @Getter
 @NoArgsConstructor
@@ -18,7 +16,7 @@ public class MemberResponseDto {
     private String nickname;
     private List<String> likes;//from Hobby
     private List<String> hates;//from Hobby
-    private List<String> active;//from result
+    //private List<String> active;//from result
 
 
     @Builder
@@ -27,6 +25,6 @@ public class MemberResponseDto {
         this.nickname = member.getNickname();
         this.likes = hobby.getLikes();
         this.hates = hobby.getHates();
-        this.active = result.getActive();
+        //this.active = result.getActive();
     }
 }

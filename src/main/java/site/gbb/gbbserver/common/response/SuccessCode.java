@@ -15,7 +15,7 @@ public enum SuccessCode {
     CREATE_HOBBY_SUCCESS(CREATED, "취미 선택 성공"),
 
     // result
-    GET_RESULT_SUCCESS(OK, "취미 추천 받기 성공");
+    GET_RESULT_SUCCESS(OK, "취미 분석 성공");
 
     private final HttpStatus status;
     private final String message;

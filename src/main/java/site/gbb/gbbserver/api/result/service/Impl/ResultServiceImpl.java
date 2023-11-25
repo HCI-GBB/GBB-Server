@@ -12,6 +12,8 @@ import site.gbb.gbbserver.api.result.dto.response.ResultGetResponseDto;
 import site.gbb.gbbserver.api.result.repository.ResultRepository;
 import site.gbb.gbbserver.api.result.service.ResultService;
 
+import java.util.Optional;
+
 @Service
 @RequiredArgsConstructor
 @Transactional(readOnly = true)
@@ -25,10 +27,10 @@ public class ResultServiceImpl implements ResultService {
     public ResultGetResponseDto getResult(Long memberId, Long hobbyId) {
 
         Member member = memberRepository.findByIdOrThrow(memberId);
-        Hobby hobby = hobbyRepository.findByMemberId(member.getId());
-        Result result = resultRepository.findByHobbyId(hobby.getId());
+        Optional<Hobby> hobby = hobbyRepository.findByMemberId(member.getId());
+        Optional<Result> result = resultRepository.findByHobbyId(hobby.get().getId());
 
-        return ResultGetResponseDto.of(hobby.getMember().getNickname(), result.getActive(), result.getPercent());
+        return ResultGetResponseDto.of(hobby.get().getMember().getNickname(), result.get().getActive(), result.get().getPercent());
 
     }
 }

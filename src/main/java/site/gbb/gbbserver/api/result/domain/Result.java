@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import site.gbb.gbbserver.api.hobby.domain.Hobby;
+import site.gbb.gbbserver.api.member.domain.Member;
 import site.gbb.gbbserver.common.util.StringListConverter;
 
 import java.util.List;
@@ -24,6 +25,9 @@ public class Result {
     @ManyToOne(fetch = LAZY)
     @JoinColumn(name = "hobby_id")
     private Hobby hobby;
+    @ManyToOne(fetch = LAZY)
+    @JoinColumn(name = "hobby_id", insertable = false, updatable = false)
+    private Member member;
 
     @Convert(converter = StringListConverter.class)
     private List<String> active;
@@ -33,6 +37,7 @@ public class Result {
 
     @Builder
     public Result(Hobby hobby, List<String> active, List<String> percent) {
+
         this.hobby = hobby;
         this.active = active;
         this.percent = percent;

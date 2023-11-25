@@ -2,6 +2,7 @@ package site.gbb.gbbserver.api.member.service;
 
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import site.gbb.gbbserver.api.hobby.repository.HobbyRepository;
 import site.gbb.gbbserver.api.member.domain.Member;
@@ -36,14 +37,19 @@ public class MemberService {
     }
 
     public MemberResponseDto findById(Long id) {
-        MemberResponseDto dto = MemberResponseDto.builder()
-                .id(id)
-                .nickname(memberRepository.findByIdOrThrow(id).getNickname())
-                .like(hobbyRepository.findByMemberId(id).get().getLikes())
-                .hate(hobbyRepository.findByMemberId(id).get().getHates())
-                .active(resultRepository.findByHobbyId(id).get().getActive())
-                .build();
-        return dto;
+        if (!hobbyRepository.existsById(id)||!resultRepository.existsById(id)){
+            return new MemberResponseDto();
+        }else{
+            MemberResponseDto dto = MemberResponseDto.builder()
+                    .id(id)
+                    .nickname(memberRepository.findByIdOrThrow(id).getNickname())
+                    .like(hobbyRepository.findByMemberId(id).get().getLikes())
+                    .hate(hobbyRepository.findByMemberId(id).get().getHates())
+                    .active(resultRepository.findByMemberId(id).get())
+                    .build();
+            return dto;
+        }
+
     }
 
     public boolean checkNickname(String nickname){

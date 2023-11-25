@@ -17,10 +17,10 @@ public class MemberResponseDto {
     private String nickname;
     private List<String> like;
     private List<String> hate;
-    private List<String> active;
+    private Result active;
 
     @Builder
-    public MemberResponseDto (Long id,String nickname,List<String> like,List<String> hate,List<String> active){
+    public MemberResponseDto (Long id,String nickname,List<String> like,List<String> hate,Result active){
         this.id = id;
         this.nickname = nickname;
         this.like = like;

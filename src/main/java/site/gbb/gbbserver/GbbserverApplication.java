@@ -6,8 +6,7 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 @EnableWebMvc
 @SpringBootApplication
-public class git GbbserverApplication {
-
+public class GbbserverApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(GbbserverApplication.class, args);
 	}

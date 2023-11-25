@@ -1,16 +1,11 @@
 package site.gbb.gbbserver.api.member.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import site.gbb.gbbserver.api.member.domain.Member;
 import site.gbb.gbbserver.api.member.dto.MemberRequestDto;
 import site.gbb.gbbserver.api.member.dto.MemberResponseDto;
 import site.gbb.gbbserver.api.member.service.MemberService;
-import site.gbb.gbbserver.common.exception.BadRequestException;
-import site.gbb.gbbserver.common.exception.DuplicateException;
-
-import java.util.Optional;
 
 
 @RestController
@@ -27,6 +22,4 @@ public class MemberController {
     public MemberResponseDto findById(@PathVariable("id") Long id){
         return memberService.findById(id);
     }
-
-
 }

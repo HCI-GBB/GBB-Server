@@ -3,7 +3,6 @@ package site.gbb.gbbserver.api.member.service;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import site.gbb.gbbserver.api.hobby.domain.Hobby;
 import site.gbb.gbbserver.api.hobby.repository.HobbyRepository;
 import site.gbb.gbbserver.api.member.domain.Member;
 import site.gbb.gbbserver.api.member.dto.MemberResponseDto;
@@ -11,9 +10,6 @@ import site.gbb.gbbserver.api.member.repository.MemberRepository;
 import site.gbb.gbbserver.api.member.dto.MemberRequestDto;
 import site.gbb.gbbserver.api.result.repository.ResultRepository;
 import site.gbb.gbbserver.common.exception.DuplicateException;
-
-import java.util.List;
-import java.util.Optional;
 
 
 @Service

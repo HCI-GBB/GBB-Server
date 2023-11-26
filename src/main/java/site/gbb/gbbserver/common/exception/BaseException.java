@@ -16,4 +16,5 @@ public class BaseException extends RuntimeException {
         this.statusCode = statusCode;
         this.code = code;
     }
+
 }

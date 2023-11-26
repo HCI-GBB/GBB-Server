@@ -5,9 +5,13 @@ import org.springframework.stereotype.Repository;
 import site.gbb.gbbserver.api.hobby.domain.Hobby;
 
 import java.util.Optional;
+import org.springframework.stereotype.Repository;
+import site.gbb.gbbserver.api.hobby.domain.Hobby;
 
 
 @Repository
 public interface HobbyRepository extends JpaRepository<Hobby, Long> {
-    Optional<Hobby> findByMemberId(Long memberId);
+
+    Hobby findByMemberId(Long memberId);
 }
+

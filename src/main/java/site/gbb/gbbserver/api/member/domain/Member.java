@@ -25,15 +25,10 @@ public class Member {
     private Long id;
 
     private String nickname;
-    @OneToMany(mappedBy = "member")
-    private List<Hobby> hobby = new ArrayList<>();
-    @OneToMany(mappedBy = "member")
-    private List<Result> results = new ArrayList<>();
 
     @Builder
-    public Member(String nickname,List<Hobby> hobby,List<Result> results) {
+    public Member(Long id,String nickname) {
+        this.id = id;
         this.nickname = nickname;
-        this.hobby = hobby;
-        this.results = results;
     }
 }

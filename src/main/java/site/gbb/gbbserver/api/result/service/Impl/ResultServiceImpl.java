@@ -19,6 +19,7 @@ public class ResultServiceImpl implements ResultService {
     private final MemberRepository memberRepository;
     private final ResultRepository resultRepository;
     private final HobbyRepository hobbyRepository;
+
     @Override
     @Transactional
     public ResultGetResponseDto getResult(Long memberId, Long hobbyId) {
@@ -27,7 +28,7 @@ public class ResultServiceImpl implements ResultService {
         Hobby hobby = hobbyRepository.findByMemberId(member.getId());
         Result result = resultRepository.findByHobbyId(hobby.getId());
 
-        return ResultGetResponseDto.of(hobby.getMember().getNickname(), result.getActive(), result.getPercent());
+        return ResultGetResponseDto.of(hobby.getMember().getNickname(), result.getInterest(), result.getInterest_percent(), result.getFocus(), result.getFocus_percent());
 
     }
 }

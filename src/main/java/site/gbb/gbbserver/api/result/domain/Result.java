@@ -8,9 +8,11 @@ import site.gbb.gbbserver.api.hobby.domain.Hobby;
 import site.gbb.gbbserver.common.util.StringListConverter;
 
 import java.util.List;
+
 import static jakarta.persistence.FetchType.LAZY;
 import static jakarta.persistence.GenerationType.IDENTITY;
 import static lombok.AccessLevel.PROTECTED;
+
 @Entity
 @Getter
 @NoArgsConstructor(access = PROTECTED)
@@ -24,9 +26,10 @@ public class Result {
 
     @Convert(converter = StringListConverter.class)
 
-    private List<String> interest;
+    private String top;
 
-    private List<String> active;
+    @Convert(converter = StringListConverter.class)
+    private List<String> interest;
 
     @Convert(converter = StringListConverter.class)
     private List<String> interest_percent;
@@ -39,12 +42,12 @@ public class Result {
 
     @Builder
 
-    public Result(Hobby hobby, List<String> interest, List<String> interest_percent, List<String> focus, List<String> focus_percent) {
+    public Result(Hobby hobby, String top, List<String> interest, List<String> interest_percent, List<String> focus, List<String> focus_percent) {
         this.hobby = hobby;
+        this.top = top;
         this.interest = interest;
         this.interest_percent = interest_percent;
         this.focus = focus;
         this.focus_percent = focus_percent;
     }
-
 }

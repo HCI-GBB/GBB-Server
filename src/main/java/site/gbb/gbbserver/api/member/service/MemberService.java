@@ -3,11 +3,9 @@ package site.gbb.gbbserver.api.member.service;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import site.gbb.gbbserver.api.hobby.repository.HobbyRepository;
 import site.gbb.gbbserver.api.member.domain.Member;
 import site.gbb.gbbserver.api.member.repository.MemberRepository;
 import site.gbb.gbbserver.api.member.dto.MemberRequestDto;
-import site.gbb.gbbserver.api.result.repository.ResultRepository;
 import site.gbb.gbbserver.common.exception.DuplicateException;
 
 
@@ -37,9 +35,9 @@ public class MemberService {
     }
 
     public boolean checkNickname(String nickname){
-        if(memberRepository.findByNickname(nickname).isPresent()){
+        if (memberRepository.findByNickname(nickname).isPresent()){
             return true;
-        }else
+        } else
             return false;
     }
 }

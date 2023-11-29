@@ -9,4 +9,5 @@ public class GbbserverApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(GbbserverApplication.class, args);
 	}
+
 }

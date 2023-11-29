@@ -3,15 +3,9 @@ package site.gbb.gbbserver.api.member.domain;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import site.gbb.gbbserver.api.hobby.domain.Hobby;
-import site.gbb.gbbserver.api.result.domain.Result;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import static jakarta.persistence.GenerationType.IDENTITY;
 import static lombok.AccessLevel.PROTECTED;
@@ -27,8 +21,7 @@ public class Member {
     private String nickname;
 
     @Builder
-    public Member(Long id,String nickname) {
-        this.id = id;
+    public Member(String nickname) {
         this.nickname = nickname;
     }
 }

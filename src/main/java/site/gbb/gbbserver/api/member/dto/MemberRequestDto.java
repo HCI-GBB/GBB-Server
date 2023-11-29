@@ -1,13 +1,10 @@
 package site.gbb.gbbserver.api.member.dto;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import site.gbb.gbbserver.api.member.domain.Member;
 
-import static jakarta.persistence.GenerationType.IDENTITY;
 
 @Getter
 @NoArgsConstructor

@@ -2,7 +2,6 @@ package site.gbb.gbbserver.api.result.dto.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import site.gbb.gbbserver.api.result.domain.Result;
 
 import java.util.List;
 
@@ -11,11 +10,13 @@ import java.util.List;
 public class ResultGetResponseDto {
     private String nickname;
 
-    private List<String> active;
+    private String top;
 
-    private List<String> percent;
+    private List<String> interest;
 
-    public static ResultGetResponseDto of(Result result) {
-        return new ResultGetResponseDto(result.getHobby().getMember().getNickname(), result.getActive(), result.getPercent());
-    }
+    private List<String> interest_percent;
+
+    private List<String> focus;
+
+    private List<String> focus_percent;
 }
